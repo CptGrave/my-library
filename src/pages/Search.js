@@ -5,6 +5,7 @@ import BooksAccordion from '../components/BooksAccordion';
 
 export default function Search() {
   const [books, setBooks] = useState([]);
+  const [library,setLibrary] = useState([]);
 
   const inputHandler = async (e) => {
     const query = e.target.value;
@@ -23,15 +24,18 @@ export default function Search() {
       setBooks([]);
     }
   }
-
+  
   const debouncedInputHandler = useCallback(
     debounce(inputHandler, 300),
     []
   );
 
   const addBook = async (book) => {
-    // Tutaj dodać zapisywanie książki do local storage.
-    console.log(book);
+    const newLibrary = [...library, book];
+
+    setLibrary(newLibrary);
+    console.log(newLibrary);
+    /* localStorage.setItem("library", JSON.stringify(library)) */
   }
 
   return (
