@@ -1,11 +1,12 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import debounce from 'lodash.debounce'
 import Form from 'react-bootstrap/Form';
 import BooksAccordion from '../components/BooksAccordion';
 
 export default function Search() {
   const [books, setBooks] = useState([]);
-  const [library,setLibrary] = useState([]);
+
+  const [library,setLibrary] = useState(() =>JSON.parse(localStorage.getItem("library")) || []);
 
   const inputHandler = async (e) => {
     const query = e.target.value;
@@ -31,11 +32,14 @@ export default function Search() {
   );
 
   const addBook = async (book) => {
-    const newLibrary = [...library, book];
-
-    setLibrary(newLibrary);
-    /* localStorage.setItem("library", JSON.stringify(library)) */
+    setLibrary(oldLibrary => {
+      return [...oldLibrary, book]
+    })
   }
+
+  React.useEffect(() => {
+    localStorage.setItem("library", JSON.stringify(library));
+  }, [library])
 
   return (
     <>
