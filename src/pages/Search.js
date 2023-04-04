@@ -34,7 +34,6 @@ export default function Search() {
     const newLibrary = [...library, book];
 
     setLibrary(newLibrary);
-    console.log(newLibrary);
     /* localStorage.setItem("library", JSON.stringify(library)) */
   }
 

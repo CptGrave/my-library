@@ -16,8 +16,8 @@ function App() {
           <Button onClick={() => setPage(SEARCH_PAGE)}>{SEARCH_PAGE}</Button>
           <Button onClick={() => setPage(LIBRARY_PAGE)}>{LIBRARY_PAGE}</Button>
         </div>
+        
       </h1>
-
       {page === SEARCH_PAGE && <Search />}
     </div>
   );
