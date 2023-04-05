@@ -19,6 +19,7 @@ export default function Search() {
         id: item.id,
         image: item.volumeInfo?.imageLinks?.smallThumbnail,
         snippet: item.volumeInfo?.description,
+        rating: 0,
       }));
       setBooks(foundBooks);
     } else {
