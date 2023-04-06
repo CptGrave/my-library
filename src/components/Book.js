@@ -4,8 +4,6 @@ import Rating from './Rating';
 
 export default function Book(props) {
 
-  const [rating,setRating] = React.useState([])
-  
   return(
     <div className="book--container">
       <div className="book">
@@ -18,7 +16,7 @@ export default function Book(props) {
             {props.snippet}
         </ShowMoreText>
         <p>My rate in stars</p>
-        <Rating />
+        <Rating rate={props.rating}/>
       
       <p>Added to library on: date element</p>
       </div>
