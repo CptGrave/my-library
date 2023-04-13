@@ -2,11 +2,17 @@ import React, { useCallback, useState } from 'react';
 import debounce from 'lodash.debounce'
 import Form from 'react-bootstrap/Form';
 import BooksAccordion from '../components/BooksAccordion';
+import useLibrary from "../hooks/useLibrary";
+
+const filterBooks = (books) => {
+  return books.filter((book) => {
+    return book.image && book.snippet;
+  })
+}
 
 export default function Search() {
   const [books, setBooks] = useState([]);
-
-  const [library,setLibrary] = useState(() =>JSON.parse(localStorage.getItem("library")) || []);
+  const library = useLibrary();
 
   const inputHandler = async (e) => {
     const query = e.target.value;
@@ -21,7 +27,7 @@ export default function Search() {
         snippet: item.volumeInfo?.description,
         rating: 0,
       }));
-      setBooks(foundBooks);
+      setBooks(filterBooks(foundBooks));
     } else {
       setBooks([]);
     }
@@ -31,16 +37,6 @@ export default function Search() {
     debounce(inputHandler, 300),
     []
   );
-
-  const addBook = async (book) => {
-    setLibrary(oldLibrary => {
-      return [...oldLibrary, book]
-    })
-  }
-
-  React.useEffect(() => {
-    localStorage.setItem("library", JSON.stringify(library));
-  }, [library])
 
   return (
     <>
@@ -55,7 +51,7 @@ export default function Search() {
         />
       </Form>
 
-      <BooksAccordion books={books} addBook={addBook} />
+      <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
     </>
   )
 }

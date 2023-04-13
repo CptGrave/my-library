@@ -1,23 +1,31 @@
-import Book from "../components/Book"
-import React from "react"
+import Book from "../components/Book";
+import useLibrary from "../hooks/useLibrary";
 
-export default function Library(props) {
+export default function Library() {
+  const { books, rateBook, deleteBook } = useLibrary();
 
-  const library = JSON.parse(localStorage.getItem("library"))
-
-  const libraryList = library.map(book=> {
-    return  <Book 
-              img={book.image}
-              key={book.id} 
-              title={book.title} 
-              snippet={book.snippet} 
-              rating={book.rating}
-    />
-  })
+  const libraryList = books.map(book => {
+    return (
+      <Book
+        img={book.image}
+        key={book.id} 
+        title={book.title} 
+        snippet={book.snippet} 
+        rating={book.rating}
+        setRating={rating => {
+          rateBook(book, rating);
+        }}
+        onDelete={() => {
+          deleteBook(book)
+        }}
+        addedOn={book.addedOn}
+      />
+    )
+  });
   
   return(
     <div>
       {libraryList}
     </div>
-  )
+  );
 }

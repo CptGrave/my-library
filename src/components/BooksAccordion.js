@@ -2,7 +2,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 
-export default function BooksAccordion({ books, addBook }) {
+export default function BooksAccordion({ books, addBook, libraryBooks }) {
   return (
     <Accordion
       defaultActiveKey={books.length ? books[0].id : null}
@@ -18,7 +18,12 @@ export default function BooksAccordion({ books, addBook }) {
                 {book.snippet}
               </p>
               {/* Schować przycisk jak już będzie książka w library */}
-              <Button onClick={() => addBook(book)}>Add to my library!</Button>
+              {
+                (libraryBooks.find(libraryBook => libraryBook.id === book.id)) ?
+                  <Button disabled variant="secondary">Already in library</Button> :
+                  <Button onClick={() => addBook(book)}>Add to my library!</Button>
+              }
+              
             </Accordion.Body>
           </Accordion.Item>
         )

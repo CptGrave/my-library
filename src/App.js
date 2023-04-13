@@ -13,7 +13,7 @@ function App() {
       <h1 className="mb-3">
         My Library - {page}
 
-        <div class="float-end">
+        <div className="float-end">
           <Button onClick={() => setPage(SEARCH_PAGE)}>{SEARCH_PAGE}</Button>
           <Button onClick={() => setPage(LIBRARY_PAGE)}>{LIBRARY_PAGE}</Button>
         </div>
