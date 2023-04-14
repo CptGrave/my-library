@@ -43,8 +43,8 @@ export default function useLibrary() {
     }))
   }
    // Sort saved books
-  const sortBooks = (criteria) => {
-
+  const sortBy = (crit) => {
+    console.log(crit)
   }
 
 
@@ -53,6 +53,6 @@ export default function useLibrary() {
     addBook,
     rateBook,
     deleteBook,
-    sortBooks
+    sortBy
   }
 }
