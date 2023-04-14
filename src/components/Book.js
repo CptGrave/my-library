@@ -26,17 +26,15 @@ export default function Book({ title, img, snippet, rating, setRating, onDelete,
           transition={true}
           initialValue={rating}
         />
-        <Button 
+        <p>Added to library on: {addedOn}</p>
+      </div>
+      <Button 
           size="sm"
           variant="outline-secondary"
           onClick={onDelete}
         >
           Delete book
         </Button>
-
-        <p>Added to library on: {addedOn}</p>
-        <p>{rating}</p>
-      </div>
     </div>
   )
 }

@@ -17,7 +17,6 @@ export default function BooksAccordion({ books, addBook, libraryBooks }) {
               <p className="clearfix">
                 {book.snippet}
               </p>
-              {/* Schować przycisk jak już będzie książka w library */}
               {
                 (libraryBooks.find(libraryBook => libraryBook.id === book.id)) ?
                   <Button disabled variant="secondary">Already in library</Button> :

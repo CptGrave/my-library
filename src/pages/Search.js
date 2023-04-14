@@ -26,6 +26,7 @@ export default function Search() {
         image: item.volumeInfo?.imageLinks?.smallThumbnail,
         snippet: item.volumeInfo?.description,
         rating: 0,
+        author: item.volumeInfo?.authors
       }));
       setBooks(filterBooks(foundBooks));
     } else {
