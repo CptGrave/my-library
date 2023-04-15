@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 export default function useLibrary() {
   const [books, setBooks] = useState(JSON.parse(localStorage.getItem("library")));
 
-  useEffect(() => {
+  useEffect(() =>{ 
     localStorage.setItem("library", JSON.stringify(books));
   }, [books]);
 
@@ -18,6 +18,7 @@ export default function useLibrary() {
       const date = new Date().toLocaleDateString("PL")
       return [...oldBooks, {...book, addedOn: date }]
     })
+    
   }
 
   const rateBook = (book, rating) => {
@@ -42,9 +43,15 @@ export default function useLibrary() {
       return book.id !== otherBook.id;
     }))
   }
-   // Sort saved books
-  const sortBy = (crit) => {
-    console.log(crit)
+   // Sort saved books FINISH SORTING!
+   // Try adding sort state, and update in effect
+  const sortBy = (event) => {
+    const param = event.target.value
+    if(param == "title") {
+      setBooks(oldBooks => oldBooks.sort((a, b) => a.title.localeCompare(b.title)))
+    } else if (param == "date") {
+      setBooks(oldBooks => oldBooks.sort((a, b) => b.title.localeCompare(a.title)))
+    }
   }
 
 

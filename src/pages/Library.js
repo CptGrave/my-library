@@ -28,19 +28,20 @@ export default function Library() {
   return(
     <>
     <p>Sort books by</p>
-    <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-        <ToggleButton id="tbg-radio-1" value={1} onClick={()=>{sortBy("title")}}>
-          Title
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-2" value={2} onClick={()=>{sortBy("author")}}>
-          Author
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-3" value={3} onClick={()=>{sortBy("rate")}}>
-          Rate
-        </ToggleButton>
-        <ToggleButton id="tbg-radio-4" value={4} onClick={()=>{sortBy("date")}}>
+    <ToggleButtonGroup type="radio" name="options" defaultValue={"date"}>
+        <ToggleButton id="tbg-radio-4" value={"date"} onChange={(event)=>sortBy(event)}>
           Date
         </ToggleButton>
+        <ToggleButton id="tbg-radio-1" value={"title"} onChange={(event)=>sortBy(event)}>
+          Title
+        </ToggleButton>
+        <ToggleButton id="tbg-radio-2" value={"author"} onChange={(event)=>sortBy(event)}>
+          Author
+        </ToggleButton>
+        <ToggleButton id="tbg-radio-3" value={"rate"} onChange={(event)=>sortBy(event)}>
+          Rate
+        </ToggleButton>
+        
       </ToggleButtonGroup>
     <div className="library--list">
       {libraryList}
