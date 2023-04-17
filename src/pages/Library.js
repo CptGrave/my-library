@@ -10,7 +10,7 @@ export default function Library() {
       <Book
         img={book.image}
         author={book.author.toString()}
-        key={book.id} 
+        key={book.id}
         title={book.title} 
         snippet={book.snippet} 
         rating={book.rating}
@@ -43,6 +43,7 @@ export default function Library() {
         </ToggleButton>
         
       </ToggleButtonGroup>
+    
     <div className="library--list">
       {libraryList}
     </div>

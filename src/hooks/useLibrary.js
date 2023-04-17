@@ -44,13 +44,21 @@ export default function useLibrary() {
     }))
   }
    // Sort saved books FINISH SORTING!
-   // Try adding sort state, and update in effect
   const sortBy = (event) => {
-    const param = event.target.value
-    if(param == "title") {
-      setBooks(oldBooks => oldBooks.sort((a, b) => a.title.localeCompare(b.title)))
-    } else if (param == "date") {
-      setBooks(oldBooks => oldBooks.sort((a, b) => b.title.localeCompare(a.title)))
+    if(event.target.value == "title") {
+      setBooks(oldBooks => { return oldBooks.sort((a, b) => a.title.localeCompare(b.title))}) 
+      console.log(books)
+      //WORKS
+    } else if (event.target.value == "date") {
+      setBooks(oldBooks => { return oldBooks.sort((a, b) => b.addedOn.localeCompare(a.addedOn))})
+      console.log(books)
+    } else if (event.target.value == "rate") {
+      setBooks(oldBooks => { return oldBooks.sort((a, b) => a.rating.localeCompare(b.rating))})
+      console.log(books)
+    } else if (event.target.value == "author") {
+      setBooks(oldBooks => { return oldBooks.sort((a,b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0))})
+      console.log(books)
+      //WORKS
     }
   }
 
