@@ -18,7 +18,6 @@ export default function useLibrary() {
       const date = new Date().toLocaleDateString("PL")
       return [...oldBooks, {...book, addedOn: date }]
     })
-    
   }
 
   const rateBook = (book, rating) => {
@@ -43,25 +42,19 @@ export default function useLibrary() {
       return book.id !== otherBook.id;
     }))
   }
-   // Sort saved books FINISH SORTING!
+
+  // Sort books by given criteria
   const sortBy = (event) => {
     if(event.target.value == "title") {
-      setBooks(oldBooks => { return oldBooks.sort((a, b) => a.title.localeCompare(b.title))}) 
-      console.log(books)
-      //WORKS
+      setBooks(oldBooks => [...oldBooks].sort((a, b) => a.title.localeCompare(b.title))) 
     } else if (event.target.value == "date") {
-      setBooks(oldBooks => { return oldBooks.sort((a, b) => b.addedOn.localeCompare(a.addedOn))})
-      console.log(books)
+      setBooks(oldBooks =>[...oldBooks].sort((a, b) => b.addedOn.localeCompare(a.addedOn)))
     } else if (event.target.value == "rate") {
-      setBooks(oldBooks => { return oldBooks.sort((a, b) => a.rating.localeCompare(b.rating))})
-      console.log(books)
+      setBooks(oldBooks => [...oldBooks].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)))
     } else if (event.target.value == "author") {
-      setBooks(oldBooks => { return oldBooks.sort((a,b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0))})
-      console.log(books)
-      //WORKS
+      setBooks(oldBooks => [...oldBooks].sort((a,b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0)))
     }
   }
-
 
   return {
     books,
