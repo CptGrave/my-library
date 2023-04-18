@@ -10,7 +10,7 @@ export default function Book({ title, img, snippet, rating, setRating, author, o
         <h2>{author}</h2>
         <h2>{title}</h2>
         
-        <img src={img}></img>
+        <img src={img} alt=""></img>
         <h3>Book description</h3>
 
         <ShowMoreText
