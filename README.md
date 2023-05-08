@@ -1,6 +1,6 @@
 # Reeds (My library)
 
-#Simple web app, that works on google books api. It gives user options like search and rate books in private library.
+# Simple web app, that works on google books api. It gives user options like search and rate books in private library.
 
 
 # Links
