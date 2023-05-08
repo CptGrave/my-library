@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export default function useLibrary() {
-  const [books, setBooks] = useState(JSON.parse(localStorage.getItem("library")));
+  const [books, setBooks] = useState(JSON.parse(localStorage.getItem('library')) || []);
 
   useEffect(() =>{ 
-    localStorage.setItem("library", JSON.stringify(books));
+    localStorage.setItem('library', JSON.stringify(books));
   }, [books]);
 
   const addBook = (book) => {
