@@ -27,7 +27,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;;
 }
 
-.__modalSearch-form, .__modalSearch-modal {
-  width:80vh;
+ .__search-form {
+  width:82vh;
+}
+
+.modal {
 }
 

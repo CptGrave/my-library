@@ -41,7 +41,7 @@ export default function Search() {
 
   return (
     <>
-      <Form className="__modalSearch-form">
+      <Form className="__search-form">
         <Form.Control
           size="sm"
           type="text"
