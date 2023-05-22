@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import debounce from 'lodash.debounce'
 import Form from 'react-bootstrap/Form';
-import BooksAccordion from '../components/BooksAccordion';
+import BooksAccordion from './BooksAccordion';
 import useLibrary from "../hooks/useLibrary";
 
 const filterBooks = (books) => {
@@ -43,7 +43,7 @@ export default function Search() {
     <>
       <Form>
         <Form.Control
-          size="lg"
+          size="sm"
           type="text"
           placeholder="Search for books..."
           autoFocus
@@ -51,7 +51,6 @@ export default function Search() {
           className="mb-3"
         />
       </Form>
-
       <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
     </>
   )
