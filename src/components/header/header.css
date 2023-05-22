@@ -5,6 +5,7 @@ header {
   align-items: center;
   margin-top: 3vh;
   text-align: center;
+  gap: 10px;
 }
 
 .__header-buttons {

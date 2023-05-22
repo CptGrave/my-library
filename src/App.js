@@ -1,27 +1,19 @@
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Header from './components/header/Header'
-import Search from './components/Search';
 import Library from './pages/Library'
 
-const SEARCH_PAGE = "Search"
+const HOME_PAGE = "Home"
 const LIBRARY_PAGE = "Library"
 
 function App() {
-  const [page, setPage] = useState(SEARCH_PAGE);
+  const [page, setPage] = useState(HOME_PAGE);
   return (
     <>
-    <Header />
+    <Header homePage={()=>{setPage(HOME_PAGE)}} libraryPage={()=>{setPage(LIBRARY_PAGE)}}/>
     <div className="container">
-      
       <h1 className="mb-3">
-        My Library - {page}
-
-        <div className="float-end">
-          <Button onClick={() => setPage(SEARCH_PAGE)}>{SEARCH_PAGE}</Button>
-          <Button onClick={() => setPage(LIBRARY_PAGE)}>{LIBRARY_PAGE}</Button>
-        </div>
-
+        Reeds - {page}
       </h1>
       {page === LIBRARY_PAGE && <Library />}
     </div>

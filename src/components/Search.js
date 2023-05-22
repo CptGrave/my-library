@@ -41,14 +41,13 @@ export default function Search() {
 
   return (
     <>
-      <Form>
+      <Form className="__modalSearch-form">
         <Form.Control
           size="sm"
           type="text"
           placeholder="Search for books..."
           autoFocus
           onInput={debouncedInputHandler}
-          className="mb-3"
         />
       </Form>
       <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />

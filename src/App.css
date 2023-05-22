@@ -1,4 +1,6 @@
-.book--container {
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+  
+.__book-container {
   border-left: 9px double rgba(28,110,164,0.66);
   border-bottom: 9px double rgba(28,110,164,0.66);
   border-radius: 40px 0px 0px 0px;
@@ -9,15 +11,18 @@
   margin-top: 50px;
   padding: 10px;
 }
+
 button {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
 }
-.on {
-  color: #000;
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;;
 }
-.off {
-  color: #ccc;
+
+.__modalSearch-form {
+  width: 100%;
 }

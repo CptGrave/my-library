@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 export default function Book({ title, img, snippet, rating, setRating, author, onDelete, addedOn }) {
   return(
-    <div className="book--container">
+    <div className="__book-container">
       <div className="book">
         <h2>{author}</h2>
         <h2>{title}</h2>

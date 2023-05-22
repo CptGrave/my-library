@@ -1,6 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import ShowMoreText from "react-show-more-text";
 
 export default function BooksAccordion({ books, addBook, libraryBooks }) {
   return (
@@ -15,7 +16,12 @@ export default function BooksAccordion({ books, addBook, libraryBooks }) {
             <Accordion.Body>
               {book.image && <Image src={book.image} thumbnail className='float-start me-2 mb-2' />}
               <p className="clearfix">
-                {book.snippet}
+              <ShowMoreText
+          more="More description"
+          less="Less description"
+        >
+            {book.snippet}
+        </ShowMoreText>
               </p>
               {
                 (libraryBooks.find(libraryBook => libraryBook.id === book.id)) ?
