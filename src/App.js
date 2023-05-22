@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
 import Header from './components/header/Header'
 import Library from './pages/Library'
 
@@ -11,12 +10,7 @@ function App() {
   return (
     <>
     <Header homePage={()=>{setPage(HOME_PAGE)}} libraryPage={()=>{setPage(LIBRARY_PAGE)}}/>
-    <div className="container">
-      <h1 className="mb-3">
-        Reeds - {page}
-      </h1>
-      {page === LIBRARY_PAGE && <Library />}
-    </div>
+    {page === LIBRARY_PAGE && <Library />}
     </>
   );
 }

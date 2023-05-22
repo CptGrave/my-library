@@ -2,12 +2,17 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   margin-top: 3vh;
   text-align: center;
-  gap: 10px;
+  gap: 3vh;
+  padding: 3vh;
+  margin-top: 0;
+  width: 100%
 }
 
-.__header-buttons {
+.__header-elements {
   display: flex;
+  gap:2vh;
+  align-items: center;
+  text-align: center;
 }

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
   
+body::-webkit-scrollbar{
+  display: none;
+}
+
 .__book-container {
   border-left: 9px double rgba(28,110,164,0.66);
   border-bottom: 9px double rgba(28,110,164,0.66);
@@ -23,6 +27,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;;
 }
 
-.__modalSearch-form {
-  width: 100%;
+.__modalSearch-form, .__modalSearch-modal {
+  width:80vh;
 }
+
