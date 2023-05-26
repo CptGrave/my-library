@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/navbar/Navbar'
 import Library from './pages/Library'
 import Home from './pages/Home';
+import './App.css'
 
 const HOME_PAGE = "Home"
 const LIBRARY_PAGE = "Library"
