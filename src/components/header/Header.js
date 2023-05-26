@@ -1,6 +1,6 @@
 import './header.css'
-import logo from '../../icons/logo.png'
-import ModalSearch from '../ModalSearch'
+import logo from '../../assets/logo.png'
+import ModalSearch from '../searchbar/ModalSearch'
 import {useState} from 'react'
 import Form from 'react-bootstrap/Form';
 

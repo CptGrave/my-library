@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import debounce from 'lodash.debounce'
 import Form from 'react-bootstrap/Form';
-import BooksAccordion from './BooksAccordion';
-import useLibrary from "../hooks/useLibrary";
+import BooksAccordion from '../booksaccordion/BooksAccordion'
+import useLibrary from '../../hooks/useLibrary';
 
 const filterBooks = (books) => {
   return books.filter((book) => {

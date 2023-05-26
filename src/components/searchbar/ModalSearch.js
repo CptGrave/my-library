@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import Search from './Search';
+import Search from './Search'
 
 export default function ModalSearch({showModal,closeModal}) {
 

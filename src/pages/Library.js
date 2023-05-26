@@ -1,4 +1,4 @@
-import Book from "../components/Book";
+import Book from '../components/book/Book'
 import useLibrary from "../hooks/useLibrary";
 import { ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 
