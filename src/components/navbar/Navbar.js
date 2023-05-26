@@ -1,10 +1,10 @@
-import './header.css'
+import './navbar.css'
 import logo from '../../assets/logo.png'
 import ModalSearch from '../searchbar/ModalSearch'
 import {useState} from 'react'
 import Form from 'react-bootstrap/Form';
 
-function Header({homePage, libraryPage}) {
+function Navbar({homePage, libraryPage}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -12,10 +12,10 @@ function Header({homePage, libraryPage}) {
   return (
     
     <header>
-      <section className="__header-elements">
-      <img className="__header-logo" src={logo} alt="logo">
+      <section className="__navbar-elements">
+      <img className="__navbar-logo" src={logo} alt="logo">
       </img>
-      <Form className="__header-form">
+      <Form className="__navbar-form">
         <Form.Control
           size="sm"
           type="text"
@@ -26,11 +26,13 @@ function Header({homePage, libraryPage}) {
       </Form>
       {show && <ModalSearch showModal={handleShow} closeModal={handleClose}/>}
       </section>
-      <section className="__header-elements">
+      <section className="__navbar-elements">
         <button onClick={homePage}>Home</button>
         <button onClick={libraryPage}>Library</button>
+        <button>Community</button>
+        <button>Blog</button>
       </section>
-      <section className="__header-elements">
+      <section className="__navbar-elements">
         <button>Login</button>
         <button>Register</button>
       </section>
@@ -38,4 +40,4 @@ function Header({homePage, libraryPage}) {
   )
 }
 
-export default Header
+export default Navbar

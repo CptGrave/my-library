@@ -1,3 +1,4 @@
+import './search.css'
 import React, { useCallback, useState } from 'react';
 import debounce from 'lodash.debounce'
 import Form from 'react-bootstrap/Form';
@@ -40,7 +41,7 @@ export default function Search() {
   );
 
   return (
-    <>
+    <div className="__search-container">
       <Form className="__search-form">
         <Form.Control
           size="sm"
@@ -51,6 +52,8 @@ export default function Search() {
         />
       </Form>
       <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
-    </>
+    </div>
+      
+    
   )
 }
