@@ -7,8 +7,6 @@ function Home() {
     <div className="__home-container">
       <JustAdded />
     </div>
-    
   )
 }
-
 export default Home

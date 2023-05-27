@@ -1,7 +1,6 @@
 import './justadded.css'
 import useLibrary from '../../hooks/useLibrary'
 import React from 'react'
-import Carousel from 'react-bootstrap/Carousel';
 
 function JustAdded() {
   const { books } = useLibrary();

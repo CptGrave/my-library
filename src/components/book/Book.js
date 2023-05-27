@@ -4,12 +4,12 @@ import { Rating } from 'react-simple-star-rating'
 import { Button } from 'react-bootstrap';
 
 export default function Book({ title, img, snippet, rating, setRating, author, onDelete, addedOn }) {
-  return(
+  return (
     <div className="__book-container">
       <div className="book">
         <h2>{author}</h2>
         <h2>{title}</h2>
-        
+
         <img src={img} alt=""></img>
         <h3>Book description</h3>
 
@@ -17,12 +17,12 @@ export default function Book({ title, img, snippet, rating, setRating, author, o
           more="More description"
           less="Less description"
         >
-            {snippet}
+          {snippet}
         </ShowMoreText>
 
         <p>My rate in stars</p>
 
-        <Rating 
+        <Rating
           onClick={setRating}
           iconsCount={10}
           transition={true}
@@ -30,13 +30,13 @@ export default function Book({ title, img, snippet, rating, setRating, author, o
         />
         <p>Added to library on: {addedOn}</p>
       </div>
-      <Button 
-          size="sm"
-          variant="outline-secondary"
-          onClick={onDelete}
-        >
-          Delete book
-        </Button>
+      <Button
+        size="sm"
+        variant="outline-secondary"
+        onClick={onDelete}
+      >
+        Delete book
+      </Button>
     </div>
   )
 }

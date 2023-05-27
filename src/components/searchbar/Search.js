@@ -14,6 +14,9 @@ const filterBooks = (books) => {
 export default function Search() {
   const [books, setBooks] = useState([]);
   const library = useLibrary();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = () => setIsOpen(false);
+  const handleOpen = () => setIsOpen(true);
 
   const inputHandler = async (e) => {
     const query = e.target.value;
@@ -34,26 +37,37 @@ export default function Search() {
       setBooks([]);
     }
   }
-  
+
   const debouncedInputHandler = useCallback(
     debounce(inputHandler, 300),
     []
   );
 
   return (
-    <div className="__search-container">
-      <Form className="__search-form">
+    <div className="__search-form">
+      {isOpen &&
+        <div
+          className="__search-overlay"
+          onClick={handleClose}
+        ></div>
+      }
+
+      <Form className="__navbar-form ">
         <Form.Control
           size="sm"
           type="text"
           placeholder="Search for books..."
-          autoFocus
           onInput={debouncedInputHandler}
+          onFocus={handleOpen}
         />
       </Form>
-      <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
+      {isOpen &&
+        <div className="__search-result">
+          <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
+        </div>
+      }
     </div>
-      
+
     
   )
 }
