@@ -2,9 +2,9 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 3vh;
+  margin-top: 2rem;
   text-align: center;
-  gap: 3vh;
+  gap: 2rem;
   padding: 3vh;
   margin-top: 0;
   width: 100%
@@ -12,12 +12,11 @@ header {
 
 .__navbar-elements {
   display: flex;
-  gap:2vh;
+  gap: 2rem;
   align-items: center;
   text-align: center;
 }
 
 section:first-of-type {
-  gap: 5vh
+  gap: 5rem;
 }
-

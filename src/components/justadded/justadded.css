@@ -1,0 +1,37 @@
+.__justadded-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.wrapper {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.__justadded-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 96, 91, 0.1);
+  width: 56px;
+  height: 63px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.left {
+  transform: rotate(180deg)
+}
+
+.__justadded-book {
+ border: 3px solid red;
+ flex: 1 1 0px
+}
+
+.__justadded-book-img {
+display: flex;
+align-items: center;
+justify-content: center;
+}

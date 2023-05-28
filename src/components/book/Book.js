@@ -1,3 +1,4 @@
+import './book.css'
 import React from 'react'
 import ShowMoreText from "react-show-more-text";
 import { Rating } from 'react-simple-star-rating'
