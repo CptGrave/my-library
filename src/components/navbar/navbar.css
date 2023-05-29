@@ -12,9 +12,10 @@ header {
 
 .__navbar-elements {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 
 section:first-of-type {

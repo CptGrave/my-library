@@ -2,16 +2,23 @@
   display: flex;
   justify-content: space-around;
   gap: 3rem;
+  width: 75rem;
+  height: 25rem;
 }
 
 .wrapper {
 display: flex;
 align-items: center;
 justify-content: center;
+max-width: min-content;
+max-height: min-content;
+margin-top: 3rem;
 }
 
 .__justadded-arrow {
   display: flex;
+  position: fixed;
+  top: 30%;
   align-items: center;
   justify-content: center;
   background: rgba(0, 96, 91, 0.1);
@@ -22,16 +29,39 @@ justify-content: center;
 }
 
 .left {
-  transform: rotate(180deg)
+  transform: rotate(180deg);
+  left: 15rem;
+}
+
+.right {
+  right: 15rem;
+}
+
+
+
+
+.__justadded-arrow:hover {
+  background: rgba(221, 224, 224, 0.1);
+  transition: var(--transition)
+}
+
+.left {
+  
+  position: fixed;
 }
 
 .__justadded-book {
- border: 3px solid red;
- flex: 1 1 0px
+ flex: 1 1 0px;
 }
 
 .__justadded-book-img {
 display: flex;
 align-items: center;
 justify-content: center;
+margin: 0rem 0rem 1rem 0rem;
 }
+
+.__justadded-book-title {
+  font-size: 20px;
+}
+

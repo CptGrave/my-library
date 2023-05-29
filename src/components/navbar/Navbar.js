@@ -4,7 +4,6 @@ import Search from '../searchbar/Search'
 
 function Navbar({homePage, libraryPage}) {
   return (
-    
     <header>
       <section className="__navbar-elements">
       <img className="__navbar-logo" src={logo} alt="logo" />
@@ -12,15 +11,15 @@ function Navbar({homePage, libraryPage}) {
       </section>
 
       <section className="__navbar-elements">
-        <button onClick={homePage}>Home</button>
-        <button onClick={libraryPage}>Library</button>
-        <button>Community</button>
-        <button>Blog</button>
+        <div onClick={homePage}>Home</div>
+        <div onClick={libraryPage}>Library</div>
+        <div>Community</div>
+        <div>Blog</div>
       </section>
       
       <section className="__navbar-elements">
-        <button>Login</button>
-        <button>Register</button>
+        <div className="button button-primary"><b>Login</b></div>
+        <div className="button button-secondary"><b>Register</b></div>
       </section>
     </header>
   )

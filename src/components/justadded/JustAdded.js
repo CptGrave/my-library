@@ -2,41 +2,62 @@ import './justadded.css'
 import useLibrary from '../../hooks/useLibrary'
 import React from 'react'
 import arrow from '../../../src/assets/arrow.png'
+import Image from 'react-bootstrap/Image';
+import Ratio from 'react-bootstrap/Ratio';
 
 function JustAdded() {
   const { books } = useLibrary();
-
+  const [n, setN] = React.useState(5)
+  const [m, setM] = React.useState(0)
   const slideLeft = () => {
-
+    setM(oldM => oldM - 5)
+    setN(oldN => oldN - 5)
   }
 
   const slideRight = () => {
-    
+    setN(oldN => oldN + 5)
+    setM(oldM => oldM + 5)
   }
-  const justAddedBooks = books.map(book => {
-    return (
-      <div key={book.id} className="__justadded-book">
-        <div className="__justadded-book-img">
-          <img src={book.image}></img>
+
+  const justAddedBooks = () => {
+    return books.slice(m, n).map(book => {
+      return (
+        <div key={book.id} className="__justadded-book">
+          <div className="__justadded-book-img">
+            <Ratio aspectRatio={'1x1'}>
+              <Image src={book.image} thumbnail />
+            </Ratio>
+          </div>
+          <div className="__justadded-book-info">
+            <p className="__justadded-book-author lead">{book.author}</p>
+            <b><p className="__justadded-book-title">{book.title}</p></b>
+          </div>
         </div>
-        <p>{book.author}</p>
-        <p>{book.title}</p>
-      </div>
-    )
-  })
+      )
+    })
+  }
+
+  React.useEffect(() => {
+    setSlicedArray(justAddedBooks)
+
+  }, [m])
+
+  const [slicedArray, setSlicedArray] = React.useState(justAddedBooks)
   return (
     <>
-      <h5>Just added</h5>
-      <div className="__justadded-container wrapper">
-        <div className="__justadded-arrow left" onClick={slideLeft}>
-          <img src={arrow}></img>
+      <div>
+        <h5><b>Just added</b></h5>
+        {m >= 5 && <div className="__justadded-arrow left" onClick={slideLeft}>
+            <img src={arrow}></img>
+          </div>}
+        <div className="__justadded-container wrapper">
+          <div className="__justadded-container">
+            {slicedArray}
         </div>
-        <div className="__justadded-container">
-          {justAddedBooks}
         </div>
-        <div className="__justadded-arrow" onClick={slideRight}>
-          <img src={arrow}></img>
-        </div>
+          {n <= 5 && <div className="__justadded-arrow right" onClick={slideRight}>
+            <img src={arrow}></img>
+          </div>}
       </div>
     </>
   )

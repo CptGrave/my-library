@@ -61,6 +61,7 @@ export default function useLibrary() {
     addBook,
     rateBook,
     deleteBook,
-    sortBy
+    sortBy,
   }
 }
+

@@ -44,7 +44,7 @@ export default function Library() {
         
       </ToggleButtonGroup>
     
-    <div className="library--list">
+    <div className="__library-list">
       {libraryList}
     </div>
     </>
