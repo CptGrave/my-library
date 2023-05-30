@@ -1,0 +1,7 @@
+.__sorting-list:hover {
+cursor: pointer;
+}
+
+.__sorting-list-criteria:hover {
+  text-decoration-line: underline;
+}

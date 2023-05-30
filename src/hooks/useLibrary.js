@@ -44,14 +44,14 @@ export default function useLibrary() {
   }
 
   // Sort books by given criteria
-  const sortBy = (event) => {
-    if(event.target.value === "title") {
+  const sortBy = (criteria) => {
+    if(criteria === "title") {
       setBooks(oldBooks => [...oldBooks].sort((a, b) => a.title.localeCompare(b.title))) 
-    } else if (event.target.value === "date") {
+    } else if (criteria === "date") {
       setBooks(oldBooks =>[...oldBooks].sort((a, b) => b.addedOn.localeCompare(a.addedOn)))
-    } else if (event.target.value === "rate") {
+    } else if (criteria === "rate") {
       setBooks(oldBooks => [...oldBooks].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)))
-    } else if (event.target.value === "author") {
+    } else if (criteria === "author") {
       setBooks(oldBooks => [...oldBooks].sort((a,b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0)))
     }
   }
