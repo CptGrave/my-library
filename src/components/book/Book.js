@@ -3,17 +3,20 @@ import React from 'react'
 import ShowMoreText from "react-show-more-text";
 import { Rating } from 'react-simple-star-rating'
 import { Button } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+
+const style = {
+  width: "10rem",
+  height: "13.3rem",
+}
 
 export default function Book({ title, img, snippet, rating, setRating, author, onDelete, addedOn }) {
   return (
     <div className="__book-container">
       <div className="book">
-        <h2>{author}</h2>
-        <h2>{title}</h2>
-
-        <img src={img} alt=""></img>
-        <h3>Book description</h3>
-
+          <Image src={img}  className="rounded" style={style}/>
+        <p className="lead">{author}</p>
+        <h4>{title}</h4>
         <ShowMoreText
           more="More description"
           less="Less description"
@@ -25,7 +28,7 @@ export default function Book({ title, img, snippet, rating, setRating, author, o
 
         <Rating
           onClick={setRating}
-          iconsCount={10}
+          iconsCount={5}
           transition={true}
           initialValue={rating}
         />

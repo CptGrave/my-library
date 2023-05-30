@@ -7,6 +7,10 @@ import Ratio from 'react-bootstrap/Ratio';
 
 function JustAdded() {
   const { books } = useLibrary();
+  const style = {
+    width: "10rem",
+    height: "13.3rem",
+  }
   const [n, setN] = React.useState(5)
   const [m, setM] = React.useState(0)
   const slideLeft = () => {
@@ -24,9 +28,7 @@ function JustAdded() {
       return (
         <div key={book.id} className="__justadded-book">
           <div className="__justadded-book-img">
-            <Ratio aspectRatio={'1x1'}>
-              <Image src={book.image} thumbnail />
-            </Ratio>
+              <Image src={book.image} thumbnail style={style}/>
           </div>
           <div className="__justadded-book-info">
             <p className="__justadded-book-author lead">{book.author}</p>

@@ -18,7 +18,7 @@ margin-top: 3rem;
 .__justadded-arrow {
   display: flex;
   position: fixed;
-  top: 30%;
+  top: 35%;
   align-items: center;
   justify-content: center;
   background: rgba(0, 96, 91, 0.1);
@@ -36,9 +36,6 @@ margin-top: 3rem;
 .right {
   right: 15rem;
 }
-
-
-
 
 .__justadded-arrow:hover {
   background: rgba(221, 224, 224, 0.1);

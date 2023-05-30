@@ -5,7 +5,6 @@ function Home() {
   
   return (
     <>
-      
       <div className="__home-container">
         <JustAdded />
       </div>

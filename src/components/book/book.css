@@ -1,11 +1,10 @@
 .__book-container {
-  border-left: 9px double rgba(28,110,164,0.66);
-  border-bottom: 9px double rgba(28,110,164,0.66);
-  border-radius: 40px 0px 0px 0px;
+  margin: 1rem;
 }
 
 .book {
-  margin-left: 30px;
-  margin-top: 50px;
-  padding: 10px;
+  display:flex;
+  flex-direction: column;
+  max-width: 10rem;
 }
+
