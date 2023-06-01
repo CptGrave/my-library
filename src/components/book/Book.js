@@ -5,16 +5,14 @@ import { Rating } from 'react-simple-star-rating'
 import { Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 
-const style = {
-  width: "10rem",
-  height: "13.3rem",
-}
-
 export default function Book({ title, img, snippet, rating, setRating, author, onDelete, addedOn }) {
   return (
     <div className="__book-container">
       <div className="book">
-          <Image src={img}  className="rounded" style={style}/>
+        <Image src={img} className="rounded" style={{
+          width: "10rem",
+          height: "13.3rem"
+        }} />
         <p className="lead">{author}</p>
         <h4>{title}</h4>
         <ShowMoreText

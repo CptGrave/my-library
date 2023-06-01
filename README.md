@@ -12,3 +12,5 @@
 
 - Star rating component https://www.npmjs.com/package/react-simple-star-rating
 
+- React mini-chart https://github.com/iifksp/react-mini-chart#readme
+

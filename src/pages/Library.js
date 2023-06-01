@@ -1,7 +1,7 @@
 import Book from '../components/book/Book'
 import useLibrary from "../hooks/useLibrary";
 import Sorting from '../components/sorting/Sorting'
-
+import Minichart from '../components/minichart/Minichart';
 
 export default function Library() {
   const { books, rateBook, deleteBook, sortBy } = useLibrary();
@@ -30,6 +30,8 @@ export default function Library() {
     <div className="__library-container">
       <div className="__library-menu">
       <Sorting sortBy={sortBy} />
+      <Minichart />
+
       </div>
       <div className="__library-list">
         {libraryList}

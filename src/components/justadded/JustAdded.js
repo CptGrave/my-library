@@ -3,14 +3,9 @@ import useLibrary from '../../hooks/useLibrary'
 import React from 'react'
 import arrow from '../../../src/assets/arrow.png'
 import Image from 'react-bootstrap/Image';
-import Ratio from 'react-bootstrap/Ratio';
 
 function JustAdded() {
   const { books } = useLibrary();
-  const style = {
-    width: "10rem",
-    height: "13.3rem",
-  }
   const [n, setN] = React.useState(5)
   const [m, setM] = React.useState(0)
   const slideLeft = () => {
@@ -28,7 +23,10 @@ function JustAdded() {
       return (
         <div key={book.id} className="__justadded-book">
           <div className="__justadded-book-img">
-              <Image src={book.image} thumbnail style={style}/>
+            <Image src={book.image} thumbnail style={{
+              width: "10rem",
+              height: "13.3rem"
+            }} />
           </div>
           <div className="__justadded-book-info">
             <p className="__justadded-book-author lead">{book.author}</p>
@@ -50,16 +48,16 @@ function JustAdded() {
       <div>
         <h5><b>Just added</b></h5>
         {m >= 5 && <div className="__justadded-arrow left" onClick={slideLeft}>
-            <img src={arrow}></img>
-          </div>}
+          <img src={arrow}></img>
+        </div>}
         <div className="__justadded-container wrapper">
           <div className="__justadded-container">
             {slicedArray}
+          </div>
         </div>
-        </div>
-          {n <= 5 && <div className="__justadded-arrow right" onClick={slideRight}>
-            <img src={arrow}></img>
-          </div>}
+        {n <= 5 && <div className="__justadded-arrow right" onClick={slideRight}>
+          <img src={arrow}></img>
+        </div>}
       </div>
     </>
   )

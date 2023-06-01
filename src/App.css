@@ -88,8 +88,12 @@ body::-webkit-scrollbar {
 }
 
 .__library-menu {
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   width: 20rem;
+  gap: 3rem;
+  margin-left: 2rem;
 }
 
 
