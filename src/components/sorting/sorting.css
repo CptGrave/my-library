@@ -1,3 +1,6 @@
+.__sorting-list-criteria {
+  position: relative;
+}
 .__sorting-list:hover {
 cursor: pointer;
 }

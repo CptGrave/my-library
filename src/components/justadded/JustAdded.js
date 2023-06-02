@@ -23,14 +23,14 @@ function JustAdded() {
       return (
         <div key={book.id} className="__justadded-book">
           <div className="__justadded-book-img">
-            <Image src={book.image} thumbnail style={{
+            <Image src={book.image} style={{
               width: "10rem",
               height: "13.3rem"
             }} />
           </div>
           <div className="__justadded-book-info">
             <p className="__justadded-book-author lead">{book.author}</p>
-            <b><p className="__justadded-book-title">{book.title}</p></b>
+            <p className="__justadded-book-title"><b>{book.title}</b></p>
           </div>
         </div>
       )
@@ -44,7 +44,6 @@ function JustAdded() {
 
   const [slicedArray, setSlicedArray] = React.useState(justAddedBooks)
   return (
-    <>
       <div>
         <h5><b>Just added</b></h5>
         {m >= 5 && <div className="__justadded-arrow left" onClick={slideLeft}>
@@ -59,7 +58,6 @@ function JustAdded() {
           <img src={arrow}></img>
         </div>}
       </div>
-    </>
   )
 }
 

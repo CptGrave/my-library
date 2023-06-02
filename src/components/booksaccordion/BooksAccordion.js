@@ -31,7 +31,6 @@ export default function BooksAccordion({ books, addBook, libraryBooks }) {
           </Accordion.Item>
         )
       })}
-
     </Accordion>
   );
 }

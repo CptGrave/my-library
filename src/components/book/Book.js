@@ -14,7 +14,7 @@ export default function Book({ title, img, snippet, rating, setRating, author, o
           height: "13.3rem"
         }} />
         <p className="lead">{author}</p>
-        <h4>{title}</h4>
+        <b><h4>{title}</h4></b>
         <ShowMoreText
           more="More description"
           less="Less description"
@@ -29,6 +29,8 @@ export default function Book({ title, img, snippet, rating, setRating, author, o
           iconsCount={5}
           transition={true}
           initialValue={rating}
+          size={32}
+          fillColor={"#00605B"}
         />
         <p>Added to library on: {addedOn}</p>
       </div>

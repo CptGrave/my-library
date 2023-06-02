@@ -29,13 +29,15 @@ export default function Library() {
   return (
     <div className="__library-container">
       <div className="__library-menu">
-      <Sorting sortBy={sortBy} />
-      <Minichart />
+        <Sorting sortBy={sortBy} />
+        <Minichart />
+      </div><div>
+        <h5><b>My library</b></h5>
+        <div className="__library-list">
+          {libraryList}
+        </div>
+      </div>
 
-      </div>
-      <div className="__library-list">
-        {libraryList}
-      </div>
     </div>
   );
 }

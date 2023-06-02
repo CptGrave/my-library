@@ -38,7 +38,7 @@ margin-top: 3rem;
 }
 
 .__justadded-arrow:hover {
-  background: rgba(221, 224, 224, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   transition: var(--transition)
 }
 
@@ -61,4 +61,6 @@ margin: 0rem 0rem 1rem 0rem;
 .__justadded-book-title {
   font-size: 20px;
 }
+
+
 

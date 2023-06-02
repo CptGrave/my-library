@@ -21,7 +21,6 @@ console.log(data)
         strokeColor="#00605B"
         activePointColor="#111D1D" />
     </div>
-
   )
 }
 
