@@ -1,8 +1,9 @@
+import './search.css'
 import React, { useCallback, useState } from 'react';
 import debounce from 'lodash.debounce'
 import Form from 'react-bootstrap/Form';
-import BooksAccordion from '../components/BooksAccordion';
-import useLibrary from "../hooks/useLibrary";
+import BooksAccordion from '../booksaccordion/BooksAccordion'
+import useLibrary from '../../hooks/useLibrary';
 
 const filterBooks = (books) => {
   return books.filter((book) => {
@@ -13,6 +14,9 @@ const filterBooks = (books) => {
 export default function Search() {
   const [books, setBooks] = useState([]);
   const library = useLibrary();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = () => setIsOpen(false);
+  const handleOpen = () => setIsOpen(true);
 
   const inputHandler = async (e) => {
     const query = e.target.value;
@@ -33,26 +37,37 @@ export default function Search() {
       setBooks([]);
     }
   }
-  
+
   const debouncedInputHandler = useCallback(
     debounce(inputHandler, 300),
     []
   );
 
   return (
-    <>
-      <Form>
+    <div className="__search-form">
+      {isOpen &&
+        <div
+          className="__search-overlay"
+          onClick={handleClose}
+        ></div>
+      }
+
+      <Form className="__navbar-form ">
         <Form.Control
-          size="lg"
+          size="sm"
           type="text"
           placeholder="Search for books..."
-          autoFocus
           onInput={debouncedInputHandler}
-          className="mb-3"
+          onFocus={handleOpen}
         />
       </Form>
+      {isOpen &&
+        <div className="__search-result">
+          <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
+        </div>
+      }
+    </div>
 
-      <BooksAccordion books={books} libraryBooks={library.books} addBook={library.addBook} />
-    </>
+
   )
 }

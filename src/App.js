@@ -1,27 +1,22 @@
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
-import Search from './pages/Search';
+import './App.css'
+import Navbar from './components/navbar/Navbar'
 import Library from './pages/Library'
+import Home from './pages/Home';
 
-const SEARCH_PAGE = "Search"
+
+const HOME_PAGE = "Home"
 const LIBRARY_PAGE = "Library"
 
 function App() {
-  const [page, setPage] = useState(SEARCH_PAGE);
+  const [page, setPage] = useState(HOME_PAGE);
+  
   return (
-    <div className="container">
-      <h1 className="mb-3">
-        My Library - {page}
-
-        <div className="float-end">
-          <Button onClick={() => setPage(SEARCH_PAGE)}>{SEARCH_PAGE}</Button>
-          <Button onClick={() => setPage(LIBRARY_PAGE)}>{LIBRARY_PAGE}</Button>
-        </div>
-
-      </h1>
-      {page === SEARCH_PAGE && <Search />}
-      {page === LIBRARY_PAGE && <Library />}
-    </div>
+    <>
+    <Navbar homePage={()=>{setPage(HOME_PAGE)}} libraryPage={()=>{setPage(LIBRARY_PAGE)}}/>
+    {page === LIBRARY_PAGE && <Library />}
+    {page === HOME_PAGE && <Home />}
+    </>
   );
 }
 

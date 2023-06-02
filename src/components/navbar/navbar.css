@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+  text-align: center;
+  gap: 2rem;
+  padding: 3vh;
+  margin-top: 0;
+  width: 100%
+}
+
+.__navbar-elements {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+section:first-of-type {
+  gap: 5rem;
+}
