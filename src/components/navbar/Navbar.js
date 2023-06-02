@@ -1,6 +1,6 @@
 import './navbar.css'
 import logo from '../../assets/logo.png'
-import Search from '../searchbar/Search'
+import Search from '../search/Search'
 
 function Navbar({homePage, libraryPage}) {
   return (

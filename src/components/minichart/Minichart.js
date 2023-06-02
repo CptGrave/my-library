@@ -8,8 +8,6 @@ function Minichart() {
   books.map(book => {
     data.push(book.rating)
   })
-
-console.log(data)
   return (
     <div className="__minichart-container">
       <p>Given rates chart</p>
