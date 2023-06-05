@@ -1,18 +1,12 @@
 import React from 'react'
 import MiniChart from 'react-mini-chart'
-import useLibrary from '../../hooks/useLibrary';
 
-function Minichart() {
-  const { books } = useLibrary()
-  const data = []
-  books.map(book => {
-    data.push(book.rating)
-  })
+function Minichart({rates}) {
   return (
     <div className="__minichart-container">
       <p>Given rates chart</p>
       <MiniChart
-        dataSet={[1,2,3,4,5]}
+        dataSet={rates}
         width={150}
         height={150}
         labelFontSize={20}

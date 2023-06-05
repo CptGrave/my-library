@@ -80,7 +80,7 @@ body::-webkit-scrollbar {
   flex-wrap: wrap;
   gap: 4rem;
   padding-right: 2rem;
-  max-width: 90rem;
+  max-width: 100rem;
 }
 
 .__library-container {

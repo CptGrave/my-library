@@ -13,7 +13,7 @@ function App() {
   
   return (
     <>
-    <Navbar homePage={()=>{setPage(HOME_PAGE)}} libraryPage={()=>{setPage(LIBRARY_PAGE)}}/>
+    <Navbar homePage={()=>{setPage(HOME_PAGE); console.log("sortByDate")}} libraryPage={()=>{setPage(LIBRARY_PAGE)}}/>
     {page === LIBRARY_PAGE && <Library />}
     {page === HOME_PAGE && <Home />}
     </>
