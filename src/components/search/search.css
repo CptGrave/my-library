@@ -17,7 +17,7 @@
 .__search-result {
   position: absolute;
   z-index: 100;
-  width: calc(100vw - 200px);
+  width: 82vh;
 }
 
 .__search-overlay {
