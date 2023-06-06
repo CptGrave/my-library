@@ -3,17 +3,17 @@ import useLibrary from "../hooks/useLibrary";
 import Sorting from '../components/sorting/Sorting'
 import Minichart from '../components/minichart/Minichart';
 import ModalBook from '../components/book/ModalBook';
-import {useState} from 'react'
+import { useState } from 'react'
 
 export default function Library() {
-  const { books, rateBook, deleteBook, sortBy, rates} = useLibrary();
+  const { books, rateBook, deleteBook, sortBy, rates } = useLibrary();
 
   const [modalBook, setModalBook] = useState(books[0])
-  const [showModal,setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const getModal = (event) => {
     const id = event.target.parentNode.getAttribute('data-id')
-    setModalBook(books.filter( book => book.id == id))
+    setModalBook(books.filter(book => book.id == id))
     setShowModal(true)
   }
 
@@ -43,7 +43,7 @@ export default function Library() {
     <div className="__library-container">
       <div className="__library-menu">
         <Sorting sortBy={sortBy} />
-        <Minichart rates={rates}/>
+        <Minichart rates={rates} />
       </div><div>
         <h5><b>My library</b></h5>
         <div className="__library-list">
@@ -55,6 +55,10 @@ export default function Library() {
         author={modalBook[0].author.toString()}
         key={modalBook[0].id}
         id={modalBook[0].id}
+        averageRating={modalBook[0].averageRating}
+        ratingsCount={modalBook[0].ratingsCount}
+        buyLink={modalBook[0].buyLink}
+        publishedDate={modalBook[0].publishedDate}
         title={modalBook[0].title}
         snippet={modalBook[0].snippet}
         rating={modalBook[0].rating}
@@ -66,8 +70,8 @@ export default function Library() {
         }}
         addedOn={modalBook[0].addedOn}
         showModal={showModal}
-        handleClose={setShowModal}/> }
-      
+        handleClose={setShowModal} />}
+
     </div>
   );
 }

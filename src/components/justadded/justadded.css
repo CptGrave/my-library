@@ -43,19 +43,12 @@ margin-top: 3rem;
 }
 
 .left {
-  
   position: fixed;
 }
 
 .__justadded-book {
- flex: 1 1 0px;
-}
-
-.__justadded-book-img {
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 0rem 0rem 1rem 0rem;
+ display: flex;
+ flex-direction: column;
 }
 
 .__justadded-book-title {

@@ -12,3 +12,15 @@
 .rounded {
   cursor: pointer;
 }
+
+.lead {
+  margin-top: 1rem;
+}
+
+.__book-addedon {
+  margin-top: 1rem;
+}
+
+.__book-clickable:hover {
+  cursor: pointer;
+}
