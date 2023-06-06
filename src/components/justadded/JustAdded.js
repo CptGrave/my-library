@@ -49,7 +49,7 @@ function JustAdded() {
           {slicedArray}
         </div>
       </div>
-      {n <= 5 && <div className="__justadded-arrow right" onClick={slideRight}>
+      {books.length > 5 && n <= 5 && <div className="__justadded-arrow right" onClick={slideRight}>
         <img src={arrow}></img>
       </div>}
     </div>

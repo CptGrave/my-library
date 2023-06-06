@@ -28,8 +28,8 @@ function ModalBook({ ratingsCount, averageRating, buyLink, publishedDate, id, ha
             >
               {snippet}
             </ShowMoreText>
-            <p style={style}>Buy this book {<a href={buyLink} target="_blank">here</a>}</p>
-            {averageRating && <p>Average google books rating: {averageRating}/5 ({ratingsCount})</p>}
+            {buyLink && <p style={style}>Buy this book {<a href={buyLink} target="_blank">here</a>}</p>}
+            {averageRating && <p style={style}>Average google books rating: {averageRating}/5 ({ratingsCount})</p>}
             <Rating
               style={style}
               onClick={setRating}
