@@ -2,9 +2,25 @@
   margin: 1rem;
 }
 
-.book {
+.__book {
   display:flex;
   flex-direction: column;
   max-width: 10rem;
+  max-height: 30rem;
 }
 
+.rounded {
+  cursor: pointer;
+}
+
+.lead {
+  margin-top: 1rem;
+}
+
+.__book-addedon {
+  margin-top: 1rem;
+}
+
+.__book-clickable:hover {
+  cursor: pointer;
+}

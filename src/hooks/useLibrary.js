@@ -1,11 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function useLibrary() {
   const [books, setBooks] = useState(JSON.parse(localStorage.getItem('library')) || []);
+  const [rates, setRates] = useState({})
 
-  useEffect(() =>{ 
+  useEffect(() => {
     localStorage.setItem('library', JSON.stringify(books));
   }, [books]);
+
+  const getRates = () => {
+    const allRates = {
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0
+    }
+    const data = []
+    books.map(book => {
+      data.push(book.rating)
+    })
+    data.forEach(function (i) { allRates[i] = (allRates[i] || 0) + 1; });
+    return (Object.values(allRates))
+  }
+
+  useMemo(() => {
+    setRates(getRates())
+  }, [books])
 
   const addBook = (book) => {
     // Don't add books that are already there
@@ -16,7 +38,7 @@ export default function useLibrary() {
     setBooks(oldBooks => {
       // Add date information to book
       const date = new Date().toLocaleDateString("PL")
-      return [...oldBooks, {...book, addedOn: date }]
+      return [...oldBooks, { ...book, addedOn: date }]
     })
   }
 
@@ -45,14 +67,14 @@ export default function useLibrary() {
 
   // Sort books by given criteria
   const sortBy = (criteria) => {
-    if(criteria === "title") {
-      setBooks(oldBooks => [...oldBooks].sort((a, b) => a.title.localeCompare(b.title))) 
+    if (criteria === "title") {
+      setBooks(oldBooks => [...oldBooks].sort((a, b) => a.title.localeCompare(b.title)))
     } else if (criteria === "date") {
-      setBooks(oldBooks =>[...oldBooks].sort((a, b) => b.addedOn.localeCompare(a.addedOn)))
+      setBooks(oldBooks => [...oldBooks].sort((a, b) => b.addedOn.localeCompare(a.addedOn)))
     } else if (criteria === "rate") {
       setBooks(oldBooks => [...oldBooks].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)))
     } else if (criteria === "author") {
-      setBooks(oldBooks => [...oldBooks].sort((a,b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0)))
+      setBooks(oldBooks => [...oldBooks].sort((a, b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0)))
     }
   }
 
@@ -62,6 +84,7 @@ export default function useLibrary() {
     rateBook,
     deleteBook,
     sortBy,
+    rates
   }
 }
 

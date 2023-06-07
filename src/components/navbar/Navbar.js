@@ -1,12 +1,12 @@
 import './navbar.css'
 import logo from '../../assets/logo.png'
-import Search from '../searchbar/Search'
+import Search from '../search/Search'
 
 function Navbar({homePage, libraryPage}) {
   return (
     <header>
       <section className="__navbar-elements">
-      <img className="__navbar-logo" src={logo} alt="logo" />
+      <img className="__navbar-logo" src={logo} alt="logo" onClick={homePage}/>
         <Search />
       </section>
 

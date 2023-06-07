@@ -30,7 +30,11 @@ export default function Search() {
         image: item.volumeInfo?.imageLinks?.smallThumbnail,
         snippet: item.volumeInfo?.description,
         rating: 0,
-        author: item.volumeInfo?.authors
+        author: item.volumeInfo?.authors,
+        buyLink: item.saleInfo?.buyLink,
+        averageRating: item.volumeInfo?.averageRating,
+        ratingsCount: item.volumeInfo?.ratingsCount,
+        publishedDate: item.volumeInfo?.publishedDate
       }));
       setBooks(filterBooks(foundBooks));
     } else {
