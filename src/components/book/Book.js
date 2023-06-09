@@ -4,33 +4,41 @@ import Image from 'react-bootstrap/Image';
 import { Rating } from 'react-simple-star-rating'
 
 export default function Book({ id, getModal, title, img, rating, author, addedOn }) {
-  const style = {
-    marginTop: "-1rem"
-  }
   return (
-    <div className="__book-container" >
-      <div className="__book" data-id={id}>
-        <Image src={img} onClick={getModal} className="rounded" style={{
-          width: "10rem",
-          height: "13.3rem"
-        }} />
-        <p className="lead">{author}</p>
-        <b><h4>{title}</h4></b>
-        <p>My rate:</p>
-        {rating == 0 ?
-          <p className="__book-clickable"
-            onClick={getModal}>
-            Add rate!
-          </p> :
-          <Rating
-            style={style}
-            readonly={true}
-            iconsCount={rating}
-            size={32}
-            emptyColor={"#00605B"}
-          />}
+    <div className="__book" data-id={id}>
+      <Image src={img} className="__book-image" />
 
-        <p className="__book-addedon">Added to library on: {addedOn}</p>
+      <div className="__book-details">
+        <div className="__book-details-top">
+          <div className="__book-details-title">{title}</div>
+          <div className="__book-details-authors">{author}</div>
+        </div>
+
+        <div class="__book-details-bottom">
+          <div class="d-flex justify-content-between">
+            {
+              rating == 0 ?
+                <div className="__book-clickable"
+                  onClick={() => getModal(id)}>
+                  Add rate!
+                </div> :
+                <Rating
+                  readonly={true}
+                  iconsCount={rating}
+                  size={24}
+                  emptyColor={"#00605B"}
+                />
+            }
+            <button
+              className="btn btn-sm btn-outline-primary"
+              onClick={() => getModal(id)} 
+            >
+              See more
+            </button>
+          </div>
+          
+          <div className="fw-lighter">Added: {addedOn}</div>
+        </div>
       </div>
     </div>
   )

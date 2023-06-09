@@ -5,7 +5,7 @@ import arrow from '../../../src/assets/arrow.png'
 import Image from 'react-bootstrap/Image';
 
 function JustAdded() {
-  const { books } = useLibrary();
+  const { books, sortedBooks } = useLibrary();
   const [n, setN] = React.useState(5)
   const [m, setM] = React.useState(0)
   const slideLeft = () => {
@@ -19,7 +19,7 @@ function JustAdded() {
   }
 
   const justAddedBooks = () => {
-    return books.slice(m, n).map(book => {
+    return sortedBooks.slice(m, n).map(book => {
       return (
         <div key={book.id} className="__justadded-book">
             <Image src={book.image} style={{

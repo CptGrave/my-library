@@ -2,13 +2,25 @@ import { useState, useEffect, useMemo } from 'react';
 
 export default function useLibrary() {
   const [books, setBooks] = useState(JSON.parse(localStorage.getItem('library')) || []);
-  const [rates, setRates] = useState({})
+  const [sortBy, setSortBy] = useState('date');
 
   useEffect(() => {
     localStorage.setItem('library', JSON.stringify(books));
   }, [books]);
 
-  const getRates = () => {
+  const sortedBooks = useMemo(() => {
+    if (sortBy === "title") {
+      return [...books].sort((a, b) => a.title.localeCompare(b.title))
+    } else if (sortBy === "date") {
+      return [...books].sort((a, b) => b.addedOn.localeCompare(a.addedOn))
+    } else if (sortBy === "rate") {
+      return [...books].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
+    } else if (sortBy === "author") {
+      return [...books].sort((a, b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0))
+    }
+  }, [books, sortBy]);
+
+  const rates = useMemo(() => {
     const allRates = {
       0: 0,
       1: 0,
@@ -23,10 +35,6 @@ export default function useLibrary() {
     })
     data.forEach(function (i) { allRates[i] = (allRates[i] || 0) + 1; });
     return (Object.values(allRates))
-  }
-
-  useMemo(() => {
-    setRates(getRates())
   }, [books])
 
   const addBook = (book) => {
@@ -65,26 +73,14 @@ export default function useLibrary() {
     }))
   }
 
-  // Sort books by given criteria
-  const sortBy = (criteria) => {
-    if (criteria === "title") {
-      setBooks(oldBooks => [...oldBooks].sort((a, b) => a.title.localeCompare(b.title)))
-    } else if (criteria === "date") {
-      setBooks(oldBooks => [...oldBooks].sort((a, b) => b.addedOn.localeCompare(a.addedOn)))
-    } else if (criteria === "rate") {
-      setBooks(oldBooks => [...oldBooks].sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating)))
-    } else if (criteria === "author") {
-      setBooks(oldBooks => [...oldBooks].sort((a, b) => (a.author[0] > b.author[0]) ? 1 : ((b.author[0] > a.author[0]) ? -1 : 0)))
-    }
-  }
-
   return {
     books,
     addBook,
     rateBook,
     deleteBook,
+    rates,
+    setSortBy,
     sortBy,
-    rates
+    sortedBooks,
   }
 }
-

@@ -1,6 +1,5 @@
 .__justadded-container {
   display: flex;
-  justify-content: space-around;
   gap: 3rem;
   width: 75rem;
   height: 25rem;
@@ -54,6 +53,5 @@ margin-top: 3rem;
 .__justadded-book-title {
   font-size: 20px;
 }
-
 
 

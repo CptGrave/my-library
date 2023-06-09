@@ -11,7 +11,7 @@
   flex-wrap: wrap;
   gap: 4rem;
   padding-right: 2rem;
-  max-width: 100rem;
+  max-width: max-content;
 }
 
 .__library-container {
@@ -26,5 +26,3 @@
   gap: 3rem;
   margin-left: 2rem;
 }
-
-

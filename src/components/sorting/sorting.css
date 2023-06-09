@@ -1,10 +1,12 @@
 .__sorting-list-criteria {
   position: relative;
 }
-.__sorting-list:hover {
-cursor: pointer;
-}
 
 .__sorting-list-criteria:hover {
   text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.__sorting-list-criteria--active {
+  font-weight: bold;
 }

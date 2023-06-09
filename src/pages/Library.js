@@ -6,18 +6,17 @@ import ModalBook from '../components/book/ModalBook';
 import { useState } from 'react'
 
 export default function Library() {
-  const { books, rateBook, deleteBook, sortBy, rates } = useLibrary();
+  const { sortedBooks, rateBook, deleteBook, sortBy, setSortBy, rates } = useLibrary();
 
-  const [modalBook, setModalBook] = useState(books[0])
+  const [modalBook, setModalBook] = useState(sortedBooks[0])
   const [showModal, setShowModal] = useState(false)
 
-  const getModal = (event) => {
-    const id = event.target.parentNode.getAttribute('data-id')
-    setModalBook(books.filter(book => book.id == id))
+  const getModal = (id) => {
+    setModalBook(sortedBooks.filter(book => book.id == id))
     setShowModal(true)
   }
 
-  const libraryList = books.map(book => {
+  const libraryList = sortedBooks.map(book => {
     return (
       <Book
         img={book.image}
@@ -42,7 +41,7 @@ export default function Library() {
   return (
     <div className="__library-container">
       <div className="__library-menu">
-        <Sorting sortBy={sortBy} />
+        <Sorting sortBy={sortBy} onChange={setSortBy} />
         <Minichart rates={rates} />
       </div><div>
         <h5><b>My library</b></h5>
@@ -71,7 +70,6 @@ export default function Library() {
         addedOn={modalBook[0].addedOn}
         showModal={showModal}
         handleClose={setShowModal} />}
-
     </div>
   );
 }
