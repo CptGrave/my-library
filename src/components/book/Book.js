@@ -14,8 +14,8 @@ export default function Book({ id, getModal, title, img, rating, author, addedOn
           <div className="__book-details-authors">{author}</div>
         </div>
 
-        <div class="__book-details-bottom">
-          <div class="d-flex justify-content-between">
+        <div className="__book-details-bottom">
+          <div className="d-flex justify-content-between">
             {
               rating == 0 ?
                 <div className="__book-clickable"

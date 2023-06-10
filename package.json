@@ -16,6 +16,7 @@
     "react-scripts": "5.0.1",
     "react-show-more-text": "^1.6.2",
     "react-simple-star-rating": "^5.1.7",
+    "react-tooltip": "^5.13.1",
     "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },

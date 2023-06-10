@@ -21,14 +21,13 @@ function JustAdded() {
   const justAddedBooks = () => {
     return sortedBooks.slice(m, n).map(book => {
       return (
-        <div key={book.id} className="__justadded-book">
-            <Image src={book.image} style={{
-              width: "10rem",
-              height: "13.3rem"
-            }} />
-            <p className="__justadded-book-author lead">{book.author}</p>
-            <p className="__justadded-book-title"><b>{book.title}</b></p>
-        </div>
+          <div className="__justadded-book" key={book.id}>
+            <Image src={book.image} className="__justadded-image" />
+            <div className="__justadded-details">
+              <div className="__justadded-details-title">{book.title}</div>
+              <div className="__justadded-details-authors">{book.author}</div>
+            </div>
+          </div>
       )
     })
   }
@@ -44,11 +43,9 @@ function JustAdded() {
       {m >= 5 && <div className="__justadded-arrow left" onClick={slideLeft}>
         <img src={arrow}></img>
       </div>}
-      <div className="__justadded-container wrapper">
         <div className="__justadded-container">
           {slicedArray}
         </div>
-      </div>
       {books.length > 5 && n <= 5 && <div className="__justadded-arrow right" onClick={slideRight}>
         <img src={arrow}></img>
       </div>}
