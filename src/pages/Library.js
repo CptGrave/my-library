@@ -6,7 +6,7 @@ import ModalBook from '../components/book/ModalBook';
 import { useState } from 'react'
 
 export default function Library() {
-  const { sortedBooks, rateBook, deleteBook, sortBy, setSortBy, rates } = useLibrary();
+  const { sortedBooks, rateBook, deleteBook, sortBy, setSortBy } = useLibrary();
 
   const [modalBook, setModalBook] = useState(sortedBooks[0])
   const [showModal, setShowModal] = useState(false)
@@ -42,7 +42,6 @@ export default function Library() {
     <div className="__library-container">
       <div className="__library-menu">
         <Sorting sortBy={sortBy} onChange={setSortBy} />
-        <Minichart rates={rates} />
       </div><div>
         <h5><b>My library</b></h5>
         <div className="__library-list">

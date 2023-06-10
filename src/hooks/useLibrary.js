@@ -9,6 +9,7 @@ export default function useLibrary() {
   }, [books]);
 
   const sortedBooks = useMemo(() => {
+    // Sorts all books by given criteria
     if (sortBy === "title") {
       return [...books].sort((a, b) => a.title.localeCompare(b.title))
     } else if (sortBy === "date") {
@@ -20,6 +21,7 @@ export default function useLibrary() {
     }
   }, [books, sortBy]);
 
+  /* Preparing data array for chart component - currently deleted
   const rates = useMemo(() => {
     const allRates = {
       0: 0,
@@ -35,7 +37,7 @@ export default function useLibrary() {
     })
     data.forEach(function (i) { allRates[i] = (allRates[i] || 0) + 1; });
     return (Object.values(allRates))
-  }, [books])
+  }, [books]) */
 
   const addBook = (book) => {
     // Don't add books that are already there
@@ -78,7 +80,6 @@ export default function useLibrary() {
     addBook,
     rateBook,
     deleteBook,
-    rates,
     setSortBy,
     sortBy,
     sortedBooks,
